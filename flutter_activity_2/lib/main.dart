@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-// ====== PUNTO DE ENTRADA ======
 void main() {
   runApp(MyApp());
 }
 
-// ====== WIDGET RAÍZ ======
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,9 +17,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ====== PANTALLA DE PERFIL ======
 class UserProfilePage extends StatelessWidget {
-  // Lista de habilidades en una sola fila
+  
   final List<String> skills = [
     'Programación',
     'Música',
@@ -29,7 +27,6 @@ class UserProfilePage extends StatelessWidget {
     'Boxeo',
   ];
 
-  // Lista de proyectos con imágenes
   final List<Map<String, String>> projects = [
     {
       'title': 'Proyecto Sicesfot en PHP',
@@ -48,7 +45,6 @@ class UserProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ===== APPBAR =====
       appBar: AppBar(
         backgroundColor: Colors.blue.shade700,
         title: Text(
@@ -63,10 +59,10 @@ class UserProfilePage extends StatelessWidget {
         centerTitle: true,
       ),
 
-      // ===== CUERPO =====
+
       body: Stack(
         children: [
-          // Fondo con degradado
+
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -77,17 +73,16 @@ class UserProfilePage extends StatelessWidget {
             ),
           ),
 
-          // Contenido desplazable
+
           SingleChildScrollView(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // ===== CABECERA =====
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // FOTO DE PERFIL
+
                     Container(
                       width: 200,
                       height: 200,
@@ -112,7 +107,6 @@ class UserProfilePage extends StatelessWidget {
 
                     const SizedBox(width: 16),
 
-                    // INFORMACIÓN
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.all(12),
@@ -151,7 +145,6 @@ class UserProfilePage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // ===== REDES SOCIALES =====
                 Center(
                   child: Container(
                     padding: const EdgeInsets.symmetric(
@@ -189,7 +182,6 @@ class UserProfilePage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // ===== HABILIDADES =====
                 Text(
                   'Intereses y Habilidades',
                   style: TextStyle(
@@ -201,7 +193,7 @@ class UserProfilePage extends StatelessWidget {
 
                 const SizedBox(height: 10),
 
-                // BOTONES EN UNA SOLA FILA
+
                 Row(
                   children: skills.map((skill) {
                     return Expanded(
@@ -229,7 +221,6 @@ class UserProfilePage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // ===== PROYECTOS =====
                 Text(
                   'Proyectos',
                   style: TextStyle(
@@ -257,7 +248,6 @@ class UserProfilePage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // ===== MENSAJE DESTACADO =====
                 Text(
                   'Mensaje destacado',
                   style: TextStyle(
@@ -324,7 +314,6 @@ class UserProfilePage extends StatelessWidget {
             ),
           ),
 
-          // ===== VERSIÓN =====
           Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
@@ -344,7 +333,6 @@ class UserProfilePage extends StatelessWidget {
   }
 }
 
-// ===== ÍCONOS DE REDES SOCIALES =====
 Widget _buildSocialIcon({
   required IconData icon,
   required Color color,
@@ -356,7 +344,6 @@ Widget _buildSocialIcon({
   );
 }
 
-// ===== TARJETA DE PROYECTO CON IMAGEN COMPLETA, CENTRADA Y SIN DEFORMAR =====
 class _ProjectCard extends StatelessWidget {
   final String title;
   final String image;
@@ -383,7 +370,7 @@ class _ProjectCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // CONTENEDOR DE IMAGEN MEJORADO
+
           Expanded(
             child: Container(
               width: double.infinity,
@@ -397,13 +384,12 @@ class _ProjectCard extends StatelessWidget {
               child: Center(
                 child: Image.asset(
                   image,
-                  fit: BoxFit.contain, // 👈 IMAGEN COMPLETA SIN DEFORMARSE
+                  fit: BoxFit.contain, 
                 ),
               ),
             ),
           ),
 
-          // TÍTULO DEL PROYECTO
           Padding(
             padding: const EdgeInsets.all(8),
             child: Text(
